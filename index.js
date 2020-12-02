@@ -73,7 +73,7 @@ export default class SearchableDropDown extends Component {
     if (!setSort && typeof setSort !== 'function') {
       setSort = (item, searchedText) => {
         return (
-          item.fileName.toLowerCase().indexOf(searchedText.toLowerCase()) > -1
+          item.title.toLowerCase().indexOf(searchedText.toLowerCase()) > -1
         );
       };
     }
@@ -108,7 +108,7 @@ export default class SearchableDropDown extends Component {
           style={{...this.props.itemStyle, flex: 1, flexDirection: 'row'}}>
           <View
             style={{flex: 0.9, flexDirection: 'row', alignItems: 'flex-start'}}>
-            <Text>{item.fileName}</Text>
+            <Text>{item.title}</Text>
           </View>
           <View
             style={{flex: 0.1, flexDirection: 'row', alignItems: 'flex-end'}}>
@@ -142,7 +142,7 @@ export default class SearchableDropDown extends Component {
           style={{...this.props.itemStyle, flex: 1, flexDirection: 'row'}}>
           <View
             style={{flex: 1, flexDirection: 'row', alignItems: 'flex-start'}}>
-            <Text>{item.fileName}</Text>
+            <Text>{item.title}</Text>
           </View>
         </TouchableOpacity>
       );
@@ -164,9 +164,9 @@ export default class SearchableDropDown extends Component {
           {this.props.selectedItems &&
           this.props.selectedItems.length > 0 &&
           this.props.selectedItems.find((x) => x.id === item.id) ? (
-            <Text style={{...this.props.itemTextStyle}}>{item.fileName}</Text>
+            <Text style={{...this.props.itemTextStyle}}>{item.title}</Text>
           ) : (
-            <Text style={{...this.props.itemTextStyle}}>{item.fileName}</Text>
+            <Text style={{...this.props.itemTextStyle}}>{item.title}</Text>
           )}
         </TouchableOpacity>
       );
@@ -208,7 +208,7 @@ export default class SearchableDropDown extends Component {
       },
       {
         key: 'value',
-        val: this.state.item.fileName,
+        val: this.state.item.title,
       },
       {
         key: 'style',
@@ -272,7 +272,7 @@ export default class SearchableDropDown extends Component {
               <View
                 key={index}
                 style={{
-                  width: item.fileName.length * 8 + 60,
+                  width: item.title.length * 8 + 60,
                   justifyContent: 'center',
                   flex: 0,
                   backgroundColor: '#eee',
@@ -282,7 +282,7 @@ export default class SearchableDropDown extends Component {
                   padding: 8,
                   borderRadius: 15,
                 }}>
-                <Text style={{color: '#fff'}}>{item.fileName}</Text>
+                <Text style={{color: '#fff'}}>{item.title}</Text>
                 <TouchableOpacity
                   onPress={() =>
                     setTimeout(() => {
